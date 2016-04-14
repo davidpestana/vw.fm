@@ -1,0 +1,21 @@
+<section>
+      <div class="row">
+        <div class="span12 mb15 clearfix">
+          <h2><span>{% trans %}Furgonetas VolksWagen{% endtrans %}</span></h2>
+          <div id="clientCarousel" class="carousel slide">
+            <div class="carousel-inner">
+              {% for i in 0..(vehiculos|length/4) %}
+                 <div class="item {% if loop.first %}active{% endif %}">
+                  <div class="row">
+                    {% for entity in vehiculos|slice(i*4,4) %}
+                        <span class="span3"><a href="{{path('public_catalogo_vehiculo',{'modeloslug':entity.modeloslug})}}"><img class="fover" data-over="/img/furgos/{{entity.marcaslug}}-{{entity.modeloslug}}_over.jpg" alt="{{entity.marca}} {{entity.modelo}} camper" src="/img/furgos/{{entity.marcaslug}}-{{entity.modeloslug}}.jpg"></a></span>
+                    {% endfor %}
+                  </div>
+                 </div>
+              {% endfor %}
+            </div>
+              <a class="left carousel-control" href="#clientCarousel" data-slide="prev"><i class="icon-left-circle"></i></a> <a class="right carousel-control" href="#clientCarousel" data-slide="next"><i class="icon-right-circle"></i></a> 
+          </div>
+        </div>
+      </div>
+</section>

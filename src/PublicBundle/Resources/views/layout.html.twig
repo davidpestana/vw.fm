@@ -28,6 +28,10 @@
 <!--[if gte IE 9]><style type="text/css"> #mainMenu { filter: none !important; } </style> <![endif]-->
 <script src="{{ asset('bundles/public/js/modernizr-2.6.1.min.js') }}"></script>
 
+{# bower vendors #}
+
+ <link rel="stylesheet" href="{{ asset('assets/vendor/ammap3/ammap/ammap.css') }}">
+
 {% endblock %}
 {% block javascripts %}
 	<!-- End Document 
@@ -55,6 +59,20 @@
 <script type="text/javascript" src="{{ asset('bundles/public/js-plugin/isotope/jquery.isotope.min.js') }}"></script>
 
 	<script type="text/javascript" src="http://a.vimeocdn.com/js/froogaloop2.min.js"></script>
+
+
+
+{# bower vendors #}
+
+		<script type="text/javascript" src="{{ asset('assets/vendor/ammap3/ammap/ammap.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('assets/vendor/ammap3/ammap/plugins/responsive/responsive.min.js') }}"></script>
+
+
+{# from CDN #}
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ammaps/3.13.0/maps/js/spainProvincesLow.js"></script>
+
+
+		{#https://cdnjs.cloudflare.com/ajax/libs/ammaps/3.13.0/maps/js/spainProvincesHigh.js#}
 
 		<script type="text/javascript" src="{{ asset('bundles/public/js/custom.js') }}"></script>
 		{% block custom %}

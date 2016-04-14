@@ -1,0 +1,61 @@
+{% extends 'PublicBundle::layout.html.twig' %}
+{% block title %}CONTACTO{% endblock %}
+{% block description %}{% endblock %}
+{% block article %}
+
+ <section id="content" class="portfolio">
+    <header class="page-header">
+      <h1>{% trans %} FURGONETA CAMPER {% endtrans %} {{ marca }} {{ modelo }} </h1>
+    </header>
+    <div class="row">
+
+      <section class="span12">
+        <div class="portfolio-items isotopeWrapper clearfix da-thumbs" id="1" >
+    
+    {% for entity in entities %}
+
+          <div class=" isotopeItem {{entity.modeloslug}} row mb40">
+            <article class=" photo presBloc">
+              <section class="span5"> 
+
+        <a href="{{path('public_catalogo_kit',{'modelo':entity.modeloslug,'kit':entity.slug})}}">
+          <img src="http://www.furgomania.com{{ entity.galeria.0.img }}" alt=""/>
+        </a>
+              
+                <div class="media-hover">
+                  <div class="mask">
+                    <div class="insideLinkHolder">
+            <a href="{{path('public_catalogo_kit',{'modelo':entity.modeloslug,'kit':entity.slug})}}" data-placement="top" class="hover-link tips" title="ver&nbsp;mas&nbsp;de&nbsp;este&nbsp;kit"> <span class="iconWrapper iconLink"><i class="icon-link"></i></span> </a>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section class="blocBody span7">
+                <h3>{{entity.nombre | trans }}</h3>
+                <p  class="boxTextWrapper">
+{#        {{ entity.descripcion | raw | trans | length > 500 ? entity.descripcion | trans | slice(0, 500) ~ '...' : entity.descripcion | trans }}  #}
+        {{ entity.descripcion | raw }}
+        </p>
+
+        <p>
+                {% if entity.precio > 0 %}
+          <a class="btn" href="{{path('public_catalogo_kit',{'modelo':entity.modeloslug,'kit':entity.slug})}}"><i class="icon-ok"></i> {{ entity.precio }} €</a>
+          {% else %}
+          <a class="btn" href="{{path('public_catalogo_kit',{'modelo':entity.modeloslug,'kit':entity.slug})}}"><i class="icon-ok"></i> {{ "Próximamente" | trans }}</a>
+          {% endif %}
+        </p>
+        
+        {#<i class="icon-video"> Video disponible</i>#}
+
+              </section>
+            </article>
+          </div>
+    
+    {% endfor %}      
+        
+    </div>
+      </section>
+    </div>
+  </section>
+
+{% endblock %}

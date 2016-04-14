@@ -4806,6 +4806,9 @@ button.close {
   }
 }
 @media (max-width: 480px) {
+  .skills{
+    display:none;
+  }
   .nav-collapse {
     -webkit-transform: translate3d(0, 0, 0);
   }

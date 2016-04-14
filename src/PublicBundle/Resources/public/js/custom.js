@@ -511,23 +511,33 @@ $(window).load(function() {
 
 
 
-    if(document.getElementById('player_1')){
-        $('.slides iframe').height($('.slides li img').height());
+    /*
+    |--------------------------------------------------------------------------
+    | FURGOMANIA CUSTOM BUTTONS OVER
+    |--------------------------------------------------------------------------
+    */     
 
+$(".fover").hover(function() {
+            var original = this.src;
+            var over = $(this).data("over");
+            $(this).data("over",original);
+            $(this).attr("src",over);
+        }, function() {
+            var original = this.src;
+            var over = $(this).data("over");
+            $(this).data("over",original);
+            $(this).attr("src",over);
+        });
 
-        Froogaloop(document.getElementById('player_1')).addEvent('playProgress',
-            function(){
-                animateTxt(0,'out');
-                $('.flexslider').flexslider("pause");
-            });
-        Froogaloop(document.getElementById('player_1')).addEvent('pause',
-            function(){
-                animateTxt(0,'in');
-                $('.flexslider').flexslider("play");
-
-            });
-    }
-
+    /*$('.fover').mouseover(function(){
+        this.original = this.src;
+        this.over = 'pepe';
+        this.src = this.over;
+        console.log(this);
+    })
+    $('.fover').mouseout(function(){
+        this.src = this.original;
+    })*/
 
     /*
     |--------------------------------------------------------------------------

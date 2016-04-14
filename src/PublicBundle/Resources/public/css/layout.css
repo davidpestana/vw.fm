@@ -1740,6 +1740,9 @@ ul.entry-meta [class^="icon-"], [class*=" icon-"] {
 }
 @media screen and (min-width: 480px) and (max-width: 767px) {
 
+  .skills {
+    display:none;
+  }
 		.logotop .img{
 		width:290px;		
 		
@@ -1918,6 +1921,10 @@ ul.entry-meta [class^="icon-"], [class*=" icon-"] {
 	}
 }
 @media only screen and (min-width: 320px) and (max-width: 479px) {
+
+	 .skills {
+    display:none;
+  }
 	#globalWrapper {
 		padding: 0;
 		border: none!important;
@@ -2057,6 +2064,10 @@ ul.entry-meta [class^="icon-"], [class*=" icon-"] {
 
 /* Portrait phones */
 @media (max-width: 320px) {
+
+	 .skills {
+    display:none;
+  }
 	[class*="span"] {
 		margin-bottom:1em;
 	}

@@ -14,4 +14,15 @@ class DefaultController extends Controller
     {
         return $this->render('PublicBundle:Default:index.html.twig');
     }
+
+
+    /**
+     * @Route("/videos")
+     */
+    public function videosAction()
+    {
+        return $this->render('PublicBundle:Default:videos.html.twig');
+    }
+
+
 }

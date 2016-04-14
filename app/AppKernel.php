@@ -17,6 +17,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 #added bundles
             new Sonata\SeoBundle\SonataSeoBundle(),
+            new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle(),
 #src bundles
             new AppBundle\AppBundle(),
             new PublicBundle\PublicBundle(),

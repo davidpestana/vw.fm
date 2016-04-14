@@ -1,0 +1,70 @@
+{% extends 'PublicBundle::layout.html.twig' %}
+{% block title %}CONTACTO{% endblock %}
+{% block description %}{% endblock %}
+{% block article %}
+
+                        {#<span class="span3"><a href="{{path('public_catalogo_vehiculo',{'modeloslug':entity.modeloslug})}}"><img class="fover" data-over="/img/furgos/{{entity.marcaslug}}-{{entity.modeloslug}}_over.jpg" alt="{{entity.marca}} {{entity.modelo}} camper" src="/img/furgos/{{entity.marcaslug}}-{{entity.modeloslug}}.jpg"></a></span>#}
+               
+
+
+
+<section class="content">
+    <header class="page-header">
+      <h1>Furgonetas Volkswagen</h1>
+    </header>
+  <div id="diseno0" class="row mb15">
+    <div class="span12">
+          <h2><span>{% trans %}Descubre los kits furgomania para tu furgoneta camper, VolksWagen.{% endtrans %}</span></h2>
+
+
+          
+          <p>{% trans %}La gama de vehiculos comerciales <strong>Volkswagen</strong> tiene una gran combinacion de modelos y variantes, a continuación te mostramos las furgonetas de volkswagen que puedes convertir en <strong>furgoneta camper</strong> en tan solo unos minutos con los <strong>kits autoinstalables</strong> furgomania{% endtrans %}</p>
+       
+    </div>
+  </div>
+  </section>
+
+
+
+
+
+<section>
+
+
+
+      {% for entity in vehiculos %}
+
+      <article>
+        <div class="row">
+          <div class="span4"><a href="{{path('public_catalogo_vehiculo',{'modeloslug':entity.modeloslug})}}"> <img src="/img/furgos/{{entity.marcaslug}}-{{entity.modeloslug}}_inner.jpg" alt="team superweb"></a></div>
+          <div class="span5">
+            <h3>{{entity.marca}} {{entity.modelo}}</h3>
+            <p>{{entity.descripcion}}</p>
+            <a class="btn" href="{{path('public_catalogo_vehiculo',{'modeloslug':entity.modeloslug})}}">{% trans %}ver kits disponibles{% endtrans %}</a>
+          </div>
+          <div class="span3 skills">
+            <h4>{% trans %}Calidad / Precio{% endtrans %}</h4>
+            <div class="progress">
+              <div class="bar" style="width: {{entity.skills[0]}}%;"></div>
+            </div>
+            <h4>{% trans %}Extras y Opciones{% endtrans %}</h4>
+            <div class="progress">
+              <div class="bar" style="width: {{entity.skills[1]}}%;"></div>
+            </div>
+            <h4>{% trans %}Capacidad{% endtrans %}</h4>
+            <div class="progress">
+              <div class="bar" style="width: {{entity.skills[2]}}%;"></div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <hr>
+    {% endfor %}
+
+    </section>
+
+
+
+
+
+{% endblock %}
