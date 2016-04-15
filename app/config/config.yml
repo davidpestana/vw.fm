@@ -62,11 +62,18 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: "%mailer_transport%"
-    host:      "%mailer_host%"
-    username:  "%mailer_user%"
-    password:  "%mailer_password%"
-    spool:     { type: memory }
+    transport: %mailer_transport%
+    #host:      %mailer_host%
+    username:  %mailer_user%
+    password:  %mailer_password%
+    #spool:     { type: memory }
+services:
+    crypt_manager:
+        class:        PublicBundle\Services\cryptManager
+        arguments:    ["%secret%","%expires%"]
+    seo_manager:
+        class:        PublicBundle\Services\seoManager
+        arguments:    ['@service_container','@doctrine.orm.entity_manager']
 
 sonata_seo:
     #default:          sonata.seo.page.default

@@ -9,13 +9,24 @@
       <div class="flexslider">
         <ul class="slides sliderWrapper">
 
-			{#<li class="slideN{{counter}}" style="width: 930px; float: left; display: block;">
-				<video style="width:100%" src="http://www.furgomania.com/videos/kits-autoinstalables-furgomania-HD.mov" controls poster="/videos/kits-autoinstalables-furgomania-HD-fondo.jpg"></video>
-			</li>{% set counter = counter + 1 %}#}
+			<li class="slideN{{counter}}" style="width: 930px; float: left; display: block;">
+				<div class="video-container">
+					<iframe src="https://www.youtube.com/embed/LpZUk__xHuY" frameborder="0" allowfullscreen></iframe>
+				</div>
+			</li>{% set counter = counter + 1 %}
 
 			<li class="slideN{{counter}}" style="width: 930px; float: left; display: block;">
-				<a href="http://www.furgomania.com/es/concesionarios/"><img src="http://www.furgomania.com/img/slider/mapa1.jpg" alt="KITS FURGOMANIA"/></a>
+				<a href="{{path('public_concesionarios_index')}}"><img src="/img/slider/mapa1b.jpg" alt="KITS FURGOMANIA"/></a>
 			</li>{% set counter = counter + 1 %}
+
+			<li class="slideN{{counter}}" style="width: 930px; float: left; display: block;">
+				<a href="http://www.furgomania.com/es/interesados-transporter-furgomania/"><img src="http://www.furgomania.com/img/slider/compra-conjunta-volswagen-furgomania.jpg" alt="KITS FURGOMANIA"/></a>
+			</li>{% set counter = counter + 1 %}
+
+
+
+
+			
 
 			{#<li class="slideN{{counter}}" style="width: 930px; float: left; display: block;">
 				<a href="http://www.furgomania.com/es/furgoneta-camper/mercedes/vito-larga/kit-alto/"><img src="http://www.furgomania.com/img/slider/mercedes1.jpg" alt="KITS FURGOMANIA"/></a>
@@ -41,9 +52,7 @@
 				<a href="http://www.furgomania.com/es/furgoneta-camper/peugeot/expert-corta/kit-muebles-tapiceria/"><img src="http://www.furgomania.com/img/slider/fiatcitrpeu.jpg" alt="KITS FURGOMANIA"/></a>
 			</li>{% set counter = counter + 1 %}#}
 			
-			<li class="slideN{{counter}}" style="width: 930px; float: left; display: block;">
-				<a href="http://www.furgomania.com/es/interesados-transporter-furgomania/"><img src="http://www.furgomania.com/img/slider/compra-conjunta-volswagen-furgomania.jpg" alt="KITS FURGOMANIA"/></a>
-			</li>{% set counter = counter + 1 %}
+
 			
         </ul>
       </div>
