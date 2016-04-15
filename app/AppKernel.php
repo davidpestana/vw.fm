@@ -18,6 +18,7 @@ class AppKernel extends Kernel
 #added bundles
             new Sonata\SeoBundle\SonataSeoBundle(),
             new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle(),
+            new Cocur\Slugify\Bridge\Symfony\CocurSlugifyBundle(),
 #src bundles
             new AppBundle\AppBundle(),
             new PublicBundle\PublicBundle(),

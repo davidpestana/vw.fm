@@ -187,4 +187,28 @@ class vehiculos
     {
         return $this->descripcion;
     }
+
+    /**
+     * Set skills
+     *
+     * @param array $skills
+     *
+     * @return vehiculos
+     */
+    public function setSkills($skills)
+    {
+        $this->skills = $skills;
+
+        return $this;
+    }
+
+    /**
+     * Get skills
+     *
+     * @return array
+     */
+    public function getSkills()
+    {
+        return $this->skills;
+    }
 }

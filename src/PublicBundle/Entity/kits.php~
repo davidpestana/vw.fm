@@ -116,11 +116,11 @@ class kits
 
      /**
 
-     * @ORM\ManyToOne(targetEntity="vehiculos")
-     * @ORM\JoinColumn(name="vehiculo_id", referencedColumnName="id", nullable=true)
-     * @var fm\KitBundle\Entity\vehiculos
+     * ORM\ManyToOne(targetEntity="vehiculos")
+     * ORM\JoinColumn(name="vehiculo_id", referencedColumnName="id", nullable=true)
+     * var fm\KitBundle\Entity\vehiculos
      */
-    protected $vehiculo_id;
+    /*protected $vehiculo_id;*/
 
 
     /**
@@ -503,26 +503,5 @@ class kits
         return $this->vehiculo;
     }
 
-    /**
-     * Set vehiculo_id
-     *
-     * @param \fm\KitBundle\Entity\vehiculo $vehiculoId
-     * @return kits
-     */
-    public function setVehiculoId(\fm\KitBundle\Entity\vehiculo $vehiculoId = null)
-    {
-        $this->vehiculo_id = $vehiculoId;
-    
-        return $this;
-    }
 
-    /**
-     * Get vehiculo_id
-     *
-     * @return \fm\KitBundle\Entity\vehiculo 
-     */
-    public function getVehiculoId()
-    {
-        return $this->vehiculo_id;
-    }
 }

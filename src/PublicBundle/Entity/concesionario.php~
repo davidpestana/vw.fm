@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * concesionario
  *
  * @ORM\Table(name="concesionario")
- * @ORM\Entity(repositoryClass="fm\concesionariosBundle\Repository\concesionarioRepository")
+ * @ORM\Entity()
  */
 class concesionario
 {
@@ -83,6 +83,22 @@ class concesionario
      * @ORM\Column(name="marca", type="string", length=255)
      */
     private $marca;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="website", type="string", length=255)
+     */
+     private $website;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="string", length=450)
+     */
+     private $descripcion;
 
     /**
      * Get id
@@ -308,5 +324,53 @@ class concesionario
     public function getMarca()
     {
         return $this->marca;
+    }
+
+    /**
+     * Set website
+     *
+     * @param string $website
+     *
+     * @return concesionario
+     */
+    public function setWebsite($website)
+    {
+        $this->website = $website;
+
+        return $this;
+    }
+
+    /**
+     * Get website
+     *
+     * @return string
+     */
+    public function getWebsite()
+    {
+        return $this->website;
+    }
+
+    /**
+     * Set descripcion
+     *
+     * @param string $descripcion
+     *
+     * @return concesionario
+     */
+    public function setDescripcion($descripcion)
+    {
+        $this->descripcion = $descripcion;
+
+        return $this;
+    }
+
+    /**
+     * Get descripcion
+     *
+     * @return string
+     */
+    public function getDescripcion()
+    {
+        return $this->descripcion;
     }
 }

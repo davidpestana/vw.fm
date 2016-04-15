@@ -3,67 +3,70 @@
 {% block description %}{% endblock %}
 {% block article %}
 
- <section class="content">
+
+<section id="content" class="portfolio">
     <header class="page-header">
-      <h1>Exposiciones</h1>
+      <h1>Exposiciones en concesionarios VolksWagen</h1>
     </header>
-    
-<div id="mapdiv" style="width: 100%; height: 500px;"></div>
+    <div class="row">
+      <aside class="span2">
+                  <h2><span>{% trans %}Región{% endtrans %}</span></h2>
 
-  
-  </section>
+        <nav id="filter" class="filterVertical">
+          <ul>
+            <li><a href="" class="current btn btn-inverse btn-mini" data-filter="*">Ver Todas</a></li>
+            {% set newArray = [] %}
+            {% for concesionario in concesionarios %}
+                {% if concesionario.localidad not in newArray %}
+                 <li><a href="" class="btn  btn-inverse btn-mini" data-filter=".{{ concesionario.localidad | slugify }}">{{ concesionario.localidad }}</a></li>
+                 {% set newArray = newArray|merge([concesionario.localidad]) %}
+                {% endif %}
+            {% endfor %}
+          </ul>
+        </nav>
+      </aside>
+      <section class="span10">
+        <div class="portfolio-items isotopeWrapper clearfix da-thumbs isotope" id="1" style="position: relative; overflow: hidden; height: 1854px;">
 
-<section class="mb40">
-      <div class="row">
-        <div class="span4">
-          <div class="imgRounded"><img alt="concesionario" src="http://www.furgomania.com/{{asset('bundles/main/images/concesionarios/levantewagen.png')}}"></div>
+
+          {% for concesionario in concesionarios %}
+          <div class="isotopeItem {{ concesionario.localidad | slugify }} row isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px);">
+            <article class="presBloc">
+              <section class="imgWrapper span4"> <img src="/img/concesionarios/{{concesionario.concesionario |slugify }}.jpg" alt="">
+                <div class="media-hover" style="height: 291px; display: none; opacity: 1;">
+                  <div class="mask" style="height: 291px;">
+                    <div class="insideLinkHolder" style="top: 128.5px; left: 204px;"> <a href="{{concesionario.website}}" data-placement="bottom" class="hover-link tips" target="_blank" data-original-title="Visitar {{concesionario.website}}"><span class="iconWrapper iconLink"><i class="icon-link"></i></span></a> </div>
+                  </div>
+                </div>
+              </section>
+              <section class="blocBody span6">
+                        <div class="span6">
+                            <h3>{{concesionario.concesionario }}</h3>
+                            <p class="boxTextWrapper">{{ concesionario.descripcion }}</p>
+                        </div>
+                        <div class="span3">
+                            <h4><i class="icon-mail"></i> {{"Dirección" | trans }}:</h4>
+                            <address>{{concesionario.direccion}}</address>
+                        </div>
+                        <div class="span2">
+                              <h4><i class="icon-globe"></i> {{"Contacto" | trans }}</h4>
+                              <a href="{{concesionario.website}}">{{concesionario.website}}</a>
+                        </div>
+              </section>
+            </article>
+          </div>
+          {% endfor %}
         </div>
-        <div class="span8">
-          <h3>Valencia, Levante Wagen</h3>
-          <p>{% trans %}En Valencia, en la Avenida del Cid, puedes ver una exposición de nuestros kits, montados en las furgonetas VolksWagen Transporter, disponemos de un kit basico mas kit 4 en 1 ademas de un kit alto completo para que puedas comprobar la calidad, acabados y resolver cualquier duda que tengas, además podras adquirir tu furgo nueva o de ocasión ya equipada con nuestros equipamientos.{% endtrans %}</p>
+      </section>
     </div>
 
+    {#<div id="mapdiv" style="width: 100%; height: 500px;"></div>#}
 
-  <div class="span4">
-        <h4><i class="icon-mail"></i> {{"Dirección" | trans }}:</h4>
-        <address>
-        Avenida del Cid, 152<br /> 46014 Valencia
-        </address>
-  </div>
-  <div class="span4">
-        <h4><i class="icon-globe"></i> {{"Contacto" | trans }}</h4>
-    <a target="_new" href="http://www.levantewagen.es/volkswagen-comerciales/vehiculos-seminuevos/ofertas">www.levantewagen.es</a>
-  </div>
-       
-    </section>
-<section class="mb40">
-      <div class="row">
-
-        <div class="span8">
-          <h3>Girona, VolksWagen Autopodium</h3>
-          <p>{% trans %}En Gerona, puedes ver una exposición de nuestros kits, montados en las furgonetas VolksWagen Transporter, disponemos de un kit basico para que puedas comprobar la calidad, acabados y resolver cualquier duda que tengas, además podras adquirir tu furgo nueva o de ocasión ya equipada con nuestros equipamientos.{% endtrans %}</p>
-
-<div class="row">
-  <div class="span4">
-        <h4><i class="icon-mail"></i> {{"Dirección" | trans }}:</h4>
-        <address>
-     Ctra. Sta. Coloma de Famers, 59.<br />
-  17005 | Girona
-        </address></div>
-  <div class="span4">
-        <h4><i class="icon-globe"></i> {{"Contacto" | trans }}</h4>
-    <a target="_new" href="http://comerciales.autopodium.es/gama/VOLKSWAGEN/COMERCIAL">www.autopodium.es</a></div>
-  </div>
-</div>
-         <div class="span4">
-          <div class="imgRounded"><img alt="concesionario" src="http://www.furgomania.com/{{asset('bundles/main/images/concesionarios/autopodium.png')}}"></div>
-        </div>
-</section>
-
+  </section>
 
 {% endblock %}
 
-{% block custom %}
+{# block custom %}
 
 <script language="javascript">
   
@@ -106,4 +109,4 @@ AmCharts.makeChart( "mapdiv", {
   
 </script>
 
-{% endblock %}  
+{% endblock #}  
