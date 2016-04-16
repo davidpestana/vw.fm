@@ -1,10 +1,11 @@
+{% set pages = vehiculos|length/4 %}
 <section>
       <div class="row">
         <div class="span12 mb15 clearfix">
           <h2><span>{% trans %}Furgonetas VolksWagen{% endtrans %}</span></h2>
           <div id="clientCarousel" class="carousel slide">
             <div class="carousel-inner">
-              {% for i in 0..(vehiculos|length/4) %}
+              {% for i in 0..( pages | round (0,'ceil')  - 1 ) %}
                  <div class="item {% if loop.first %}active{% endif %}">
                   <div class="row">
                     {% for entity in vehiculos|slice(i*4,4) %}
@@ -14,7 +15,9 @@
                  </div>
               {% endfor %}
             </div>
+              {% if pages > 1 %}
               <a class="left carousel-control" href="#clientCarousel" data-slide="prev"><i class="icon-left-circle"></i></a> <a class="right carousel-control" href="#clientCarousel" data-slide="next"><i class="icon-right-circle"></i></a> 
+              {% endif %}
           </div>
         </div>
       </div>
