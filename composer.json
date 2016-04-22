@@ -29,11 +29,17 @@
         "incenteev/composer-parameter-handler": "^2.0",
         "raulfraile/ladybug-bundle": "^1.0",
         "sonata-project/seo-bundle": "^2.0",
-        "cocur/slugify": "1.4"
+        "cocur/slugify": "1.4",
+        "friendsofsymfony/rest-bundle": "^1.7",
+        "jms/serializer-bundle": "^1.1",
+        "nelmio/api-doc-bundle": "^2.12",
+        "friendsofsymfony/user-bundle": "dev-master",
+        "friendsofsymfony/oauth-server-bundle": "^1.5"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
-        "symfony/phpunit-bridge": "^3.0"
+        "symfony/phpunit-bridge": "^3.0",
+        "doctrine/doctrine-fixtures-bundle": "^2.3"
     },
     "scripts": {
         "post-install-cmd": [

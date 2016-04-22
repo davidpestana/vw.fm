@@ -1,3 +1,8 @@
+api:
+    resource: "@ApiBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 public:
     resource: "@PublicBundle/Controller/"
     type:     annotation
@@ -6,3 +11,15 @@ public:
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc
+
+fos_oauth_server_token:
+    resource: "@FOSOAuthServerBundle/Resources/config/routing/token.xml"
+
+api_default:
+    resource: "@ApiBundle/Controller/DefaultController.php"
+    type:     rest
+    prefix: /api

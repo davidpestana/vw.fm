@@ -3,6 +3,7 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: "@PublicBundle/Resources/config/services.yml" }
+    - { resource: "@ApiBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -17,7 +18,7 @@ framework:
         resource: "%kernel.root_dir%/config/routing.yml"
         strict_requirements: ~
     form:            ~
-    csrf_protection: ~
+    csrf_protection: false
     validation:      { enable_annotations: true }
     #serializer:      { enable_annotations: true }
     templating:
@@ -97,3 +98,33 @@ sonata_seo:
             'xmlns':              http://www.w3.org/1999/xhtml
             'xmlns:og':           http://opengraphprotocol.org/schema/
             #'xmlns:fb':           "http://www.facebook.com/2008/fbml"
+
+
+nelmio_api_doc: 
+    sandbox:
+        authentication:     
+            delivery: http
+            type:     bearer
+
+fos_rest:
+    routing_loader:
+        default_format: json                            # All responses should be JSON formated
+        include_format: false                           # We do not include format in request, so that all responses
+                                                        # will eventually be JSON formated
+
+fos_user:
+    db_driver: orm
+    firewall_name: api                                  # Seems to be used when registering user/reseting password,
+                                                        # but since there is no "login", as so it seems to be useless in
+                                                        # our particular context, but still required by "FOSUserBundle"
+    user_class: ApiBundle\Entity\User
+
+fos_oauth_server:
+    db_driver:           orm
+    client_class:        ApiBundle\Entity\Client
+    access_token_class:  ApiBundle\Entity\AccessToken
+    refresh_token_class: ApiBundle\Entity\RefreshToken
+    auth_code_class:     ApiBundle\Entity\AuthCode
+    service:
+        user_provider: fos_user.user_manager             # This property will be used when valid credentials are given to load the user upon access token creation
+
