@@ -50,6 +50,63 @@ class DefaultController extends FOSRestController
     }
 
 
+
+ /**
+     * List all notes.
+     *
+     * @ApiDoc(
+     *   resource = true,
+     *   statusCodes = {
+     *     200 = "Returned when successful"
+     *   }
+     * )
+     *
+     *
+     * @Annotations\View()
+     *
+     * @param Request               $request      the request object
+     *
+     * @return array
+     */
+    public function getConcesionariosAction(Request $request)
+    {
+
+         $em = $this->getDoctrine()->getManager();
+
+
+
+        $entities = $em->getRepository('PublicBundle:concesionario')->findAll();//By($filters);
+
+        $view = $this->view($entities);
+        return $this->handleView($view);
+    }
+
+   /**
+     * Get a single note.
+     *
+     * @ApiDoc(
+     *   output = "AppBundle\Model\Note",
+     *   statusCodes = {
+     *     200 = "Returned when successful",
+     *     404 = "Returned when the note is not found"
+     *   }
+     * )
+     *
+     * @Annotations\View(templateVar="concesionario")
+     *
+     * @param Request $request the request object
+     * @param int     $id      the note id
+     *
+     * @return array
+     *
+     * @throws NotFoundHttpException when note not exist
+     */
+    public function getConcesionarioAction(Request $request,concesionario $entity)
+    {
+         $view = $this->view($entity);
+        return $this->handleView($view);
+    }
+
      /**
      * Creates a new consumption from the submitted data.
      *
@@ -77,7 +134,7 @@ class DefaultController extends FOSRestController
 
         $form->handleRequest($request);
 
-
+$data = $request;
 
 		if ($form->isSubmitted() && $form->isValid()) {
 
@@ -121,14 +178,16 @@ class DefaultController extends FOSRestController
        
         $form->handleRequest($request);
 
-        $data = array();
+        $data = $entity;//array();
         
-	 	if ($form->isValid()) {
+	// 	if ($form->isValid()) {
        
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
+            $em->flush();
+
             $data = array('message' => 'concesionario updated', 'entity' => $entity);
-        }
+     //   }
 
         $view = $this->view($data);
         return $this->handleView($view);

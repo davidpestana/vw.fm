@@ -3,7 +3,7 @@
 <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
-<html {{ sonata_seo_html_attributes() }}>
+<html {{ sonata_seo_html_attributes() }} data-ng-app="fmApp">
 <!--<![endif]-->
 <head {{ sonata_seo_head_attributes() }}>
 
@@ -46,7 +46,7 @@ Date,e)}})(window,document,"_googWcmImpl","_googWcmAk","script");
 </script>
 
 </head>
-<body>
+<body ng-controller="mainController">
 
     <!-- Primary Page Layout 
       ================================================== -->
@@ -114,23 +114,58 @@ Date,e)}})(window,document,"_googWcmImpl","_googWcmAk","script");
     {% block javascripts %}{% endblock %}
     	
 <script src="/assets/vendor/angular/angular.min.js"></script>
+<script src="/assets/vendor/angular-resource/angular-resource.min.js" type="text/javascript"></script>
+
 <script src="/assets/vendor/angular-cookies/angular-cookies.min.js"></script>
 <script src="/assets/vendor/query-string/query-string.js"></script>
 <script src="/assets/vendor/angular-oauth2/dist/angular-oauth2.min.js"></script>
-
+<script src="/bundles/api/js/services.js"></script>
 <script language="javascript">
 	
-angular.module('myApp', ['angular-oauth2'])
-  .config(['OAuthProvider', function(OAuthProvider) {
+var fmApp= angular.module('fmApp', 
+  [
+  //'angular-oauth2',
+  'apiServices'
+  ]
+
+  ).controller('mainController',function($scope,Concesionario){
+    console.log(Concesionario);
+
+      var entry = Concesionario.get({ id: 45, ccess_token: 'M2EyMjE4MjNjZjA0MzU5Y2JjOWRhMjFmMDAzOGRmNDczZDliYjY4OTBkYzE4NzQzZTEyODMxOGUzMDQzMDM1YQ' }, function() {
+     
+
+       console.log(entry);
+     entry.provincia = "cambio";
+
+            var llegada = Concesionario.update({concesionario:entry},function(){
+                console.log(llegada);
+            });
+       });
+
+    //  $scope.entry = new Concesionario();
+     // $scope.entry.data = 'pepe';
+
+     /* var llegada = Concesionario.save($scope.entry,function(){
+
+          console.log(llegada);
+      });*/
+      //console.log($entry);
+  });
+
+/*fmApp.controller('mainController',['$scope','Concesionarios',function($scope,Concesionarios){
+    console.log(Concesionarios);
+
+
+}]);*/
+  /*.config(['OAuthProvider', function(OAuthProvider) {
     OAuthProvider.configure({
       baseUrl: 'https://api.website.com',
       clientId: 'CLIENT_ID',
       clientSecret: 'CLIENT_SECRET' // optional
     });
-  }]);
+  }]);*/
 
-
-angular.module('myApp', ['angular-oauth2'])
+/*angular.module('myApp', ['angular-oauth2'])
   .run(['$rootScope', '$window', 'OAuth', function($rootScope, $window, OAuth) {
     $rootScope.$on('oauth:error', function(event, rejection) {
       // Ignore `invalid_grant` error - should be catched on `LoginController`.
@@ -146,7 +181,7 @@ angular.module('myApp', ['angular-oauth2'])
       // Redirect to `/login` with the `error_reason`.
       return $window.location.href = '/login?error_reason=' + rejection.data.error;
     });
-  }]);
+  }]);*/
 </script>
 </body>
 </html>
