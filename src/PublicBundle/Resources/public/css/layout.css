@@ -95,7 +95,7 @@ h2 span {
 	text-transform:none;
 }
 h2 span:before {
-	content:" // "
+	content:"// "
 }
 h3, legend {
 	font-size: 1.33em;
