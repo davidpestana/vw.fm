@@ -46,34 +46,6 @@
     </div>
   </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <section>
 
         {#<div class="row">
@@ -97,7 +69,7 @@
         <blockquote>{{ entity.descripcion | trans | raw }}</blockquote>
         
         {% if entity.features %}
-          <div style="border:1px dashed #EEE; padding:5px;">
+          <div style="border:1px dashed #EEE; padding:5px; margin-bottom:20px;">
             <h3>{{"Carácteristicas" | trans }}:</h3>
             <ul class="iconsList iconsList-large">
             {% for component in entity.features %}
@@ -107,8 +79,12 @@
           </div>
         {% endif %}
         
-          </div>
-            <div class="span4">
+			<p class="highlight">
+			IMPORTANTE: Furgomania está en constante investigación y desarrollo de todos sus productos y por ello cabe la posibilidad de que el producto que reciba en su pedido no sea exactamente igual al reflejado en nuestra web. No obstante, Furgomania garantiza que el que reciba será de mejores cualidades en cuanto a su funcionalidad, seguridad o apariencia. Todos nuestros productos tienen un periodo de devolución de 15 días si no está satisfecho con el mismo y una garantía total de 2 años.
+			</p>
+        </div>
+		  
+        <div class="span4">
         <div class="pricingBloc focusPlan">
           <h2>{{entity.nombre | trans }}</h2>
                 
