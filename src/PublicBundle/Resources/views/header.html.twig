@@ -1,9 +1,9 @@
   <!-- header -->
   <header id="mainHeader" class="clearfix">
     <div class="row">
-		<div class="span4 clearfix logotop"> 
+		<div class="span4 clearfix logotop">
 			<div class="img">
-				<a href="{{ path('homepage') }}" class="brand"><img src="{{ asset('bundles/public/images/main-logovw.png') }}" alt="Furgomania Kits Autoinstalables"/></a>
+				<a href="{{ path('public_default_index') }}" class="brand"><img src="{{ asset('bundles/public/images/main-logovw.png') }}" alt="Furgomania Kits Autoinstalables"/></a>
 			</div>
 		</div>
 		<div class="span8 clearfix">
@@ -12,19 +12,19 @@
 			  <ul class="clearfix">
 
 					<li>
-					<a href="http://www.furgomania.com" class="firstLevel {% if app.request.get('_route') == 'homepage' %}active{% endif %}">{% trans %}Inicio{% endtrans %}</a>
-					</li>
-					
-					<li>
-					<a href="http://www.furgomania.com/es/kit-autoinstalable/" class="firstLevel {% if app.request.get('_route') == 'public_default_videos' %}active{% endif %}">{% trans %}Videos{% endtrans %}</a>
+					<a href="{{ path('public_default_index') }}" class="firstLevel {% if app.request.get('_route') == 'homepage' %}active{% endif %}">{% trans %}Inicio{% endtrans %}</a>
 					</li>
 
 					<li>
-					<a href="http://www.furgomania.com/es/concesionarios/" class="firstLevel {% if app.request.get('_route') == 'public_concesionarios_index' %}active{% endif %}">{% trans %}Exposiciones{% endtrans %}</a>
+					<a href="{{ path('public_default_videos') }}" class="firstLevel {% if app.request.get('_route') == 'public_default_videos' %}active{% endif %}">{% trans %}Videos{% endtrans %}</a>
 					</li>
-					
+
 					<li>
-					<a href="http://www.furgomania.com/es/contacto" class="firstLevel"> {% trans %}Contacto{% endtrans %}</a>
+					<a href="{{ path('public_concesionarios_index') }}" class="firstLevel {% if app.request.get('_route') == 'public_concesionarios_index' %}active{% endif %}">{% trans %}Exposiciones{% endtrans %}</a>
+					</li>
+
+					<li>
+					<a href="{{ path('public_default_contacto') }}" class="firstLevel"> {% trans %}Contacto{% endtrans %}</a>
 					</li>
 
 					<li>
@@ -35,10 +35,10 @@
 					</li>
 
 			   </ul>
-			</nav>    
+			</nav>
 
 			<!-- menu -->
-		</div>        
+		</div>
 
     </div>
   </header>

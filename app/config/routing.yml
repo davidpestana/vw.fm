@@ -1,25 +1,32 @@
-api:
-    resource: "@ApiBundle/Controller/"
-    type:     annotation
-    prefix:   /
+#api:
+#    resource: "@ApiBundle/Controller/"
+#    type:     annotation
+#    prefix:   /
+
+root:
+    path: /
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /es
+        permanent: true
 
 public:
     resource: "@PublicBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /{_locale}
 
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
+#app:
+#    resource: "@AppBundle/Controller/"
+#    type:     annotation
 
-NelmioApiDocBundle:
-    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
-    prefix:   /api/doc
+#NelmioApiDocBundle:
+#    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+#    prefix:   /api/doc
 
-fos_oauth_server_token:
-    resource: "@FOSOAuthServerBundle/Resources/config/routing/token.xml"
+#fos_oauth_server_token:
+#    resource: "@FOSOAuthServerBundle/Resources/config/routing/token.xml"
 
-api_default:
-    resource: "@ApiBundle/Controller/DefaultController.php"
-    type:     rest
-    prefix: /api
+#api_default:
+#    resource: "@ApiBundle/Controller/DefaultController.php"
+#    type:     rest
+#    prefix: /api

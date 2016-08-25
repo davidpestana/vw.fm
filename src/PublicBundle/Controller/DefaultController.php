@@ -66,7 +66,7 @@ class DefaultController extends Controller
 
 
     /**
-     * 
+     *
      *
      * @Route("/gracias/{token}")
      */
@@ -89,10 +89,10 @@ class DefaultController extends Controller
         }
 
         $form = $this->createForm(new clienteType(), $cliente);
-  
+
         if ($request->getMethod() == 'POST') {
                 $form->handleRequest($request);
-                if ($form->isValid()) {              
+                if ($form->isValid()) {
                     $em = $this->getDoctrine()->getManager();
                     $em->persist($cliente);
                     $em->flush();
