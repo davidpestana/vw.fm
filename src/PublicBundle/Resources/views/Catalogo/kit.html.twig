@@ -13,16 +13,6 @@ fbq('track', 'ViewContent');
     <header class="page-header">
       <h1>{{entity.marca}} {{entity.modelo}}</h1>
     </header>
-    <div class="row">
-     {# <nav id="filter" class="span6">
-        <ul>
-          <li><a href="" class="current btn btn-inverse btn-mini" data-filter="*">{{"Ver Todas" | trans }}</a></li>
-          <li><a href="" class="btn  btn-inverse btn-mini" data-filter=".inner">{{"Interior" | trans }}</a></li>
-          <li><a href="" class="btn btn-inverse btn-mini" data-filter=".outer">{{"Exterior" | trans }}</a></li>
-          <li><a href="" class="btn btn-inverse btn-mini" data-filter=".extra">{{"Accesorios" | trans }}</a></li>
-        </ul>
-      </nav>#}
-    </div>
     <div class="slice clearfix">
       <div class="container">
         <div class="row">
@@ -45,22 +35,6 @@ fbq('track', 'ViewContent');
   </section>
 
 <section>
-
-        {#<div class="row">
-
-           <div class="span12">
-              <div class="camera_wrap">
-
-              {% for foto in entity.galeria %}
-                <div data-thumb="{{ foto.th }}" data-src="{{ foto.img }}" >
-                {% if foto.iframe is defined %}
-                  <iframe src="{{ foto.iframe }}" width="100%" height="100%" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-                {% endif %}
-                </div>
-              {% endfor %}  
-              </div>
-        </div>  
-    </div>  #}  
       <div class="row">
         <div class="span8">  
         <h2>{{ entity.nombre}} <span>{{ entity.marca}} {{entity.modelo }} </span></h2>
@@ -88,55 +62,14 @@ fbq('track', 'ViewContent');
                 
           <h3>{% if entity.precio > 0 %} {{entity.precio}} € {% endif %}
           
-          <span>
-          {{ entity.estado | trans }}
-           <!--{ { kit.available ? '<i class="icon-thumbs-up" title="disponible próximamente">Disponible</i>' : kit.soon ? '<i class="icon-clock" title="disponible próximamente">Próximamente</i>' : '<i class="icon-cancel" title="disponible próximamente">No Disponible</i>' }} 
-          -->
-          </span>
           </h3>
-          <ul>
-            {% for feature in entity.contenido %}
-              <li>{{feature | trans }}</li>
-            {% endfor %}
-            <li> {{"impuestos y portes no incluidos" | trans }}</li>
-          </ul>
-            <p class="sign"> <a class="btn btn-large" href="{{path('public_default_contacto')}}" style=" ">{{"LO QUIERO" | trans }}</a> </p>
+
+          <p class="sign"> <a class="btn btn-large" href="{{path('public_default_contacto')}}" style=" ">{{"LO QUIERO" | trans }}</a> </p>
         </div>
       </div>   
     </div>
     
-    {# if entity.opciones != '' %}
-
-
-
-    <div class="row">
-        <div class="span12">
-          <h2><span>Opciones</span></h2>
-        </div>
-        {% for option in entity.opciones %}
-
-
-        <div class="span4">
-          <div class="pricingBloc">
-            <h2>{{option.nombre}}</h2>
-            <h3>{{option.precio}} €</h3>
-            <ul>
-            {% for component in option.contenido %}
-              <li>{{component}}</li>
-            {% endfor %}
-            </ul>
-            
-          </div>
-        </div>
-        {% endfor %}
-        </div>
-
-
-
-    {% endif #}
-
-
-      </section>
+</section>
 
 
 {% endblock %}
